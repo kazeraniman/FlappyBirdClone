@@ -43,6 +43,7 @@ _sections_unfolded = [ "Angular", "Applied Forces", "Linear", "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
+player_control = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
@@ -64,9 +65,19 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
 
+visible = false
 position = Vector2( -155.77, -165.38 )
 scale = Vector2( 0.502069, 0.502069 )
 build_mode = 0
 polygon = PoolVector2Array( 292.95, 283.605, 305.362, 280.458, 317.949, 281.507, 327.39, 285.178, 336.481, 290.948, 332.68, 285.726, 337.717, 286.695, 340.816, 288.632, 343.299, 289.899, 344.872, 294.269, 346.24, 290.182, 347.596, 286.695, 351.516, 292.521, 351.166, 298.115, 349.068, 302.311, 347.145, 303.185, 353.089, 315.073, 353.214, 320.207, 362.706, 317.108, 369.873, 318.657, 372.198, 322.919, 366.967, 329.699, 354.182, 336.672, 365.224, 342.484, 368.323, 347.52, 366.967, 351.782, 358.25, 353.525, 347.596, 348.683, 341.726, 343.22, 329.881, 346.997, 311.091, 348.353, 308.573, 353.003, 302.18, 357.458, 295.013, 359.395, 293.851, 354.746, 284.359, 366.175, 283.003, 373.923, 277.967, 370.243, 275.255, 363.463, 271.768, 358.62, 266.538, 365.594, 264.688, 374.094, 259.845, 369.832, 257.908, 363.827, 253.646, 357.435, 255.002, 351.042, 254.615, 345.231, 259.845, 340.194, 267.981, 336.96, 264.453, 330.283, 263.525, 326.212, 265.462, 311.684, 272.63, 299.674, 284.446, 288.245 )
+
+[node name="RotationBeginTimout" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.75
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="RotationBeginTimout" to="." method="_on_RotationBeginTimout_timeout"]
 
 
