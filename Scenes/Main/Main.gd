@@ -23,3 +23,6 @@ func _on_Bird_death():
 	# Stop the obstacles from moving further
 	for obstacle in $ObstacleSpawner/GeneratedObstacles.get_children():
 		obstacle.set_active(false)
+	# Stop the ground and background from scrolling
+	$Ground.set_active(false)
+	$Background.set_active(false)

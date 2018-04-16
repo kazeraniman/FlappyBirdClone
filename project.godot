@@ -32,6 +32,7 @@ fly=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","d
 2d_physics/layer_2="Pipes"
 2d_physics/layer_3="ScoreZone"
 2d_physics/layer_4="DestructionZone"
+2d_physics/layer_5="Ground"
 
 [rendering]
 

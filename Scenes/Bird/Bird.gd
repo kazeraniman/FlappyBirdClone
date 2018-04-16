@@ -13,9 +13,9 @@ var DIVING_ROTATION = 90
 var ANIMATION_FLAP_SPEED = 3
 var ANIMATION_FLY_SPEED = 2
 
-var DEATH_CAUSES = ["TopPipe", "BottomPipe"]
+var DEATH_CAUSES = ["TopPipe", "BottomPipe", "Ground"]
 
-enum State {AUTO_PILOT, PLAYING, CRASHING}
+enum State {AUTO_PILOT, PLAYING, CRASHING, CRASHED}
 
 var current_state = State.AUTO_PILOT
 
@@ -53,12 +53,15 @@ func _physics_process(delta):
 			if should_rotate:
 				rotation_degrees = clamp(rotation_degrees + ROTATION_VELOCITY * delta, FLYING_ROTATION, DIVING_ROTATION)
 		State.CRASHING:
-			# Apply the impact of gravity
-			vertical_velocity = clamp(vertical_velocity + GRAVITY, FLY_UPWARD_VELOCITY, MAX_DOWNWARD_VELOCITY)
+			# While crashing we're under the maximum gravity effect
+			vertical_velocity = MAX_DOWNWARD_VELOCITY
 			# Actually apply the physics
 			position.y += vertical_velocity * delta
 			# Nosedive time
 			rotation_degrees = clamp(rotation_degrees + ROTATION_VELOCITY * delta, FLYING_ROTATION, DIVING_ROTATION)
+		State.CRASHED:
+			# No need to fly further down or do anything else, just be sad at the bottom of the screen
+			pass
 		State.AUTO_PILOT:
 			# Auto pilot state is just passive flying so no physics to apply
 			pass
@@ -96,12 +99,26 @@ func set_player_state(state):
 			# Passively play the hurt animation on loop
 			$AnimationPlayer.stop()
 			$AnimatedSprite.play("hit")
+		State.CRASHED:
+			# Take away the player control
+			current_state = State.CRASHED
+			# Passively play the hurt animation on loop
+			$AnimationPlayer.stop()
+			$AnimatedSprite.stop()
+			$AnimatedSprite.set_animation("hit")
+			$AnimatedSprite.set_frame(0)
 
 func _on_RotationBeginTimout_timeout():
 	# Time to start the rotation as it as been sufficient time after the flap
 	should_rotate = true
 
 func _on_Bird_area_entered(area):
+	# Only check for death if we're playing
 	if current_state == State.PLAYING and area.get_name() in DEATH_CAUSES:
 		emit_signal("death")
+	# Once we reach the ground we've crashed
+	if area.get_name() == "Ground":
+		set_player_state(State.CRASHED)
+	# Until then we're still crashing
+	elif area.get_name() == "TopPipe" or area.get_name() == "BottomPipe":
 		set_player_state(State.CRASHING)
