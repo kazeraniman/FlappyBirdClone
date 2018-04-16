@@ -28,18 +28,19 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Bird" type="Area2D" index="0"]
+[node name="Bird" type="Area2D"]
 
-position = Vector2( 485.498, 284.311 )
+position = Vector2( 154.207, 332.045 )
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = -1.0
 angular_damp = -1.0
+collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Linear", "Transform" ]
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }

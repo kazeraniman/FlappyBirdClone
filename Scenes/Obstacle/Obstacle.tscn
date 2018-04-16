@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Obstacle/Obstacle.gd" type="Script" id=1]
+[ext_resource path="res://Art/Environment/full-pipe.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 71.7971 )
+
+[node name="Obstacle" type="Node2D" index="0"]
+
+position = Vector2( 240, 320 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+VELOCITY = 150
+
+[node name="TopPipe" type="Area2D" parent="." index="0"]
+
+position = Vector2( 0, -400 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="TopPipe" index="0"]
+
+rotation = 3.14159
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TopPipe" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -28.5145, -326.96, 27.9355, -326.96, 28.1502, 296.919, 32.0137, 296.919, 32.0137, 326.968, -32.3779, 326.968, -32.3779, 296.704, -28.0852, 296.704 )
+
+[node name="BottomPipe" type="Area2D" parent="." index="1"]
+
+position = Vector2( 0, 400 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="BottomPipe" index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomPipe" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 27.937, 326.616, -28.4563, 326.616, -28.1927, -296.868, -32.4091, -296.868, -32.4091, -327.172, 31.8898, -327.172, 31.8898, -296.868, 28.2006, -296.868 )
+
+[node name="ScoreArea" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" index="0"]
+
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="TopPipe" to="." method="_on_TopPipe_area_entered"]
+
+[connection signal="area_entered" from="ScoreArea" to="." method="_on_ScoreArea_area_entered"]
+
+
