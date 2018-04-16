@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 321, 10 )
 
-[node name="ObstacleSpawner" type="Node2D" index="0"]
+[node name="ObstacleSpawner" type="Node2D"]
 
 position = Vector2( 680, 320 )
 script = ExtResource( 1 )
@@ -40,6 +40,10 @@ process_mode = 1
 wait_time = 2.0
 one_shot = false
 autostart = false
+
+[node name="GeneratedObstacles" type="Node2D" parent="." index="2"]
+
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="GenerationTimeout" to="." method="_on_GenerationTimeout_timeout"]
 

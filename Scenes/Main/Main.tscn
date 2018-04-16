@@ -1,26 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Bird/Bird.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/ObstacleSpawner/ObstacleSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ObstacleSpawner/ObstacleSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Bird/Bird.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
-[node name="Bird" parent="." index="0" instance=ExtResource( 2 )]
+[node name="ObstacleSpawner" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="ObstacleSpawner" parent="." index="1" instance=ExtResource( 3 )]
-
-[node name="StartObstacleSpawningTimeout" type="Timer" parent="." index="2"]
+[node name="StartObstacleSpawningTimeout" type="Timer" parent="." index="1"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[connection signal="start_flight" from="Bird" to="." method="_on_Bird_start_flight"]
+[node name="HUD" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="Bird" parent="." index="3" instance=ExtResource( 4 )]
+
+[connection signal="score_point" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_score_point"]
 
 [connection signal="timeout" from="StartObstacleSpawningTimeout" to="." method="_on_StartObstacleSpawningTimeout_timeout"]
+
+[connection signal="death" from="Bird" to="." method="_on_Bird_death"]
+
+[connection signal="start_flight" from="Bird" to="." method="_on_Bird_start_flight"]
 
 

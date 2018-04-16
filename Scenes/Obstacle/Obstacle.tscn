@@ -8,12 +8,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 71.7971 )
 
-[node name="Obstacle" type="Node2D" index="0"]
+[node name="Obstacle" type="Node2D"]
 
 position = Vector2( 240, 320 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-VELOCITY = 150
 
 [node name="TopPipe" type="Area2D" parent="." index="0"]
 
