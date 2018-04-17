@@ -75,6 +75,7 @@ func set_player_state(state):
 			should_rotate = true
 			# Reset the flying animation and stop it as it will only trigger on fly command
 			$AnimatedSprite.stop()
+			$AnimatedSprite.set_animation("fly")
 			$AnimationPlayer.stop(false)
 			$AnimationPlayer.get_animation("flying").loop = false
 			$AnimationPlayer.seek(1.6, true)
@@ -90,6 +91,7 @@ func set_player_state(state):
 			rotation_degrees = 0
 			# Passively play the flying animation on loop
 			$AnimatedSprite.stop()
+			$AnimatedSprite.set_animation("fly")
 			$AnimationPlayer.get_animation("flying").loop = true
 			$AnimationPlayer.seek(0, true)
 			$AnimationPlayer.play("flying", -1, ANIMATION_FLY_SPEED)
@@ -104,9 +106,7 @@ func set_player_state(state):
 			current_state = State.CRASHED
 			# Passively play the hurt animation on loop
 			$AnimationPlayer.stop()
-			$AnimatedSprite.stop()
-			$AnimatedSprite.set_animation("hit")
-			$AnimatedSprite.set_frame(0)
+			$AnimatedSprite.play("hit")
 
 func _on_RotationBeginTimout_timeout():
 	# Time to start the rotation as it as been sufficient time after the flap
