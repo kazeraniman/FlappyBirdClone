@@ -7,15 +7,15 @@
 custom_solver_bias = 0.0
 extents = Vector2( 321, 10 )
 
-[node name="ObstacleSpawner" type="Node2D"]
+[node name="ObstacleSpawner" type="Node2D" index="0"]
 
-position = Vector2( 680, 320 )
+position = Vector2( 680, 0 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="DestructionZone" type="Area2D" parent="." index="0"]
 
-position = Vector2( -880, 0 )
+position = Vector2( -880, 320 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
