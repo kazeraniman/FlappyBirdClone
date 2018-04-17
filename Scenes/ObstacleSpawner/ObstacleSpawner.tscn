@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 321, 10 )
 
-[node name="ObstacleSpawner" type="Node2D" index="0"]
+[node name="ObstacleSpawner" type="Node2D"]
 
 position = Vector2( 680, 0 )
 script = ExtResource( 1 )

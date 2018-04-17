@@ -26,11 +26,15 @@ func _on_GenerationTimeout_timeout():
 	# Generate a new obstacle
 	var obstacle = obstacle_scene.instance()
 	# Position it at a random valid point
-	obstacle.position.y = pipe_opening_position_range + int(round(IMMOVABLE_PIPE_GAP_SIZE / 2))
+	obstacle.position.y = randi() % pipe_opening_position_range + int(round(IMMOVABLE_PIPE_GAP_SIZE / 2))
 	# Set up the score signal forwarding
 	obstacle.connect("score_point", self, "forward_score_signal")
 	# Add it to the scene
 	$GeneratedObstacles.add_child(obstacle)
+
+func wipe_obstacles():
+	for obstacle in $GeneratedObstacles.get_children():
+		obstacle.queue_free()
 
 func forward_score_signal():
 	emit_signal("score_point")

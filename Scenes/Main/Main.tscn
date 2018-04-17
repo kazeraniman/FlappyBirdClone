@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Bird/Bird.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Ground/Ground.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -31,6 +31,8 @@ autostart = false
 [connection signal="score_point" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_score_point"]
 
 [connection signal="timeout" from="StartObstacleSpawningTimeout" to="." method="_on_StartObstacleSpawningTimeout_timeout"]
+
+[connection signal="restart" from="HUD" to="." method="_on_HUD_restart"]
 
 [connection signal="death" from="Bird" to="." method="_on_Bird_death"]
 
