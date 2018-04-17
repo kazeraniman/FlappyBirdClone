@@ -8,7 +8,9 @@ func _ready():
 	show_mode(State.SETUP)
 
 func set_score_label(score):
+	# Set both of the score labels in step
 	$ScoreLabel.text = str(score)
+	$Menu/CenterContainer/MenuBackground/CenterContainer/VBoxContainer/CurrentScore/ScoreLabel.text = str(score)
 	
 func show_mode(mode):
 	match mode:
