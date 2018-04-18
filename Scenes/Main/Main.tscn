@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Bird/Bird.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Ground/Ground.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -18,7 +18,7 @@ script = ExtResource( 1 )
 [node name="StartObstacleSpawningTimeout" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 0.25
 one_shot = true
 autostart = false
 
