@@ -11,7 +11,10 @@ func set_score_label(score):
 	# Set both of the score labels in step
 	$ScoreLabel.text = str(score)
 	$Menu/CenterContainer/MenuBackground/CenterContainer/VBoxContainer/CurrentScore/ScoreLabel.text = str(score)
-	
+
+func set_previous_best(score):
+	$Menu/CenterContainer/MenuBackground/CenterContainer/VBoxContainer/PreviousBest/ScoreLabel.text = str(score)
+
 func show_mode(mode):
 	match mode:
 		State.SETUP:
