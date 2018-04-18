@@ -1,5 +1,8 @@
 extends Node
 
+# Score limit to prevent breaking the UI
+var MAX_SCORE = 99999999
+
 var score = 0
 
 func _ready():
@@ -17,6 +20,7 @@ func _on_StartObstacleSpawningTimeout_timeout():
 
 func _on_ObstacleSpawner_score_point():
 	score += 1
+	score = clamp(score, 0, MAX_SCORE)
 	$HUD.set_score_label(score)
 
 func _on_Bird_death():
