@@ -6,7 +6,7 @@
 [ext_resource path="res://Art/UI/restart_button_pressed.png" type="Texture" id=4]
 [ext_resource path="res://Art/UI/restart_button_hover.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 
 size = 100
 use_mipmaps = false
@@ -14,7 +14,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Settings" ]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 resource_name = "fade_in_menu"
 length = 0.25
@@ -32,6 +32,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu/CenterContainer/MenuBackground/CenterContainer/VBoxContainer/CenterContainer/TextureButton:mouse_default_cursor_shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Menu/CenterContainer/MenuBackground/CenterContainer/VBoxContainer/CenterContainer/TextureButton:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Gradient" id=2]
 
@@ -44,7 +68,7 @@ flags = 4
 gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
 
 size = 32
 use_mipmaps = false
@@ -52,7 +76,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=7]
 
 size = 64
 use_mipmaps = false
@@ -60,7 +84,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -84,7 +108,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
 percent_visible = 1.0
@@ -99,7 +123,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/fade_in_menu = SubResource( 6 )
+anims/fade_in_menu = SubResource( 5 )
 blend_times = [  ]
 
 [node name="Menu" type="Control" parent="." index="2"]
@@ -217,7 +241,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 text = "YOU SCORED"
 align = 1
 valign = 1
@@ -240,7 +264,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 text = "0"
 align = 1
 valign = 1
@@ -280,7 +304,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 text = "PREVIOUS BEST"
 align = 1
 valign = 1
@@ -303,7 +327,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 text = "0"
 align = 1
 valign = 1
