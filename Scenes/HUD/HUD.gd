@@ -22,7 +22,9 @@ func show_mode(mode):
 			$Menu.hide()
 		State.MENU:
 			$ScoreLabel.hide()
+			$Menu.modulate.a = 0
 			$Menu.show()
+			$AnimationPlayer.play("fade_in_menu")
 
 func _on_TextureButton_pressed():
 	emit_signal("restart")
