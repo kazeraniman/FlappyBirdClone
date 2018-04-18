@@ -3,6 +3,7 @@ extends Area2D
 signal start_flight
 signal death
 
+var FLIGHT_CEILING = 28
 var GRAVITY = 8
 var FLY_UPWARD_VELOCITY = -225
 var MAX_DOWNWARD_VELOCITY = 300
@@ -51,6 +52,8 @@ func _physics_process(delta):
 				$RotationBeginTimout.start()
 			# Actually apply the physics
 			position.y += vertical_velocity * delta
+			# Keep the bird on the screen
+			position.y = clamp(position.y, FLIGHT_CEILING, screen_size.y)
 			if should_rotate:
 				rotation_degrees = clamp(rotation_degrees + ROTATION_VELOCITY * delta, FLYING_ROTATION, DIVING_ROTATION)
 		State.CRASHING:
