@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/flap.wav-523428eb44c0243a29269a001268fa2f.sample"
+
+[deps]
+
+source_file="res://Audio/Sounds/flap.wav"
+source_md5="1e9a5f07824a4d1c70d5d5f698e08c09"
+
+dest_files=[ "res://.import/flap.wav-523428eb44c0243a29269a001268fa2f.sample" ]
+dest_md5="087ad4febae72a26453e914e7de8a704"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

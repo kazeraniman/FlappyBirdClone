@@ -9,6 +9,7 @@ var score = 0
 
 func _ready():
 	randomize()
+	$BackgroundMusic.play()
 
 func _on_Bird_start_flight():
 	# Player has initiated control, prepare to start generating obstacles

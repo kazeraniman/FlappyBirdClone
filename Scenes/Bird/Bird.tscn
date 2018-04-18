@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Bird/Bird.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Bird/Bird.tres" type="Animation" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Art/Flying/frame-6.png" type="Texture" id=10]
 [ext_resource path="res://Art/Flying/frame-7.png" type="Texture" id=11]
 [ext_resource path="res://Art/Flying/frame-8.png" type="Texture" id=12]
+[ext_resource path="res://Audio/Sounds/flap.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/Sounds/splat.wav" type="AudioStream" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -28,7 +30,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Bird" type="Area2D"]
+[node name="Bird" type="Area2D" index="0"]
 
 position = Vector2( 154.207, 332.045 )
 input_pickable = false
@@ -77,6 +79,22 @@ process_mode = 1
 wait_time = 0.75
 one_shot = false
 autostart = false
+
+[node name="FlapSound" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 13 )
+volume_db = -25.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="CrashSound" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 14 )
+volume_db = -25.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="area_entered" from="." to="." method="_on_Bird_area_entered"]
 

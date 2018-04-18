@@ -44,6 +44,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("fly"):
 				# Play the flap animation and apply flight changes
 				$AnimationPlayer.play("flying", -1, ANIMATION_FLAP_SPEED)
+				$FlapSound.play()
 				vertical_velocity = FLY_UPWARD_VELOCITY
 				should_rotate = false
 				rotation_degrees = FLYING_ROTATION
@@ -116,8 +117,12 @@ func _on_Bird_area_entered(area):
 	# Only check for death if we're playing
 	if current_state == State.PLAYING and area.get_name() in DEATH_CAUSES:
 		emit_signal("death")
+		$CrashSound.play()
 	# Once we reach the ground we've crashed
 	if area.get_name() == "Ground":
+		# Play the crash sound again when we hit the ground
+		if current_state == State.CRASHING:
+			$CrashSound.play()
 		set_player_state(State.CRASHED)
 	# Until then we're still crashing
 	elif area.get_name() == "TopPipe" or area.get_name() == "BottomPipe":

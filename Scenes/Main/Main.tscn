@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Background/Background.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Bird/Bird.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Ground/Ground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/Music/bgm.wav" type="AudioStream" id=7]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -27,6 +28,14 @@ autostart = false
 [node name="Bird" parent="." index="4" instance=ExtResource( 5 )]
 
 [node name="Ground" parent="." index="5" instance=ExtResource( 6 )]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="score_point" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_score_point"]
 
