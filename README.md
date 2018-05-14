@@ -5,6 +5,7 @@ Into the deep end with game development!  In an effort to get properly started w
 ## Game Clone Series
 1. [Breakout](https://github.com/kazeraniman/BreakoutClone)
 2. [**Flappy Bird**](https://github.com/kazeraniman/FlappyBirdClone)
+3. [Falling Tetrominos](https://github.com/kazeraniman/FallingTetrominosClone)
 
 ## Learning Objectives
 

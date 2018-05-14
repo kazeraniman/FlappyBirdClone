@@ -19,4 +19,4 @@ In order to track attribution and ensure I don't forget any elements, all the at
 
 ## Fonts
 
-[Arcadepix Plus.ttf](Fonts/Arcadepix Plus.ttf) created by Jimmy Campbell of DaFont.  The submission may be found [here](https://www.dafont.com/arcadepix-plus.font) and their profile may be found [here](https://www.dafont.com/jimmy-campbell.d5241).
+[Arcadepix Plus.ttf](Fonts/Arcadepix%20Plus.ttf) created by Jimmy Campbell of DaFont.  The submission may be found [here](https://www.dafont.com/arcadepix-plus.font) and their profile may be found [here](https://www.dafont.com/jimmy-campbell.d5241).
