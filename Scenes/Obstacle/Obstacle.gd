@@ -4,15 +4,18 @@ signal score_point
 
 var velocity = 150
 var active = true
+var triggered = false
 
 func _physics_process(delta):
 	if active:
 		position.x -= velocity * delta
 
 func _on_ScoreArea_area_entered(area):
-	# Signal that a point has been scored and then 
-	$ScoreArea/CollisionShape2D.disabled = true
-	emit_signal("score_point")
+	if not triggered:
+	# Signal that a point has been scored and prevent double counting on further collisions
+		triggered = true
+		$ScoreArea/CollisionShape2D.call_deferred("set_disabled", true)
+		emit_signal("score_point")
 
 func _on_TopPipe_area_entered(area):
 	if area.get_name() == "DestructionZone":
