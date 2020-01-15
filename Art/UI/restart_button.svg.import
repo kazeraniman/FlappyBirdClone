@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/restart_button.svg-06d66854435f3c117fc8fa5a44e8f27d.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Art/UI/restart_button.svg"
-source_md5="e0c1b3356d354a7cd282fd082b2c5d66"
-
 dest_files=[ "res://.import/restart_button.svg-06d66854435f3c117fc8fa5a44e8f27d.stex" ]
-dest_md5="e657cdf5e30f8e2e14840c0ee93a76a6"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

@@ -7,10 +7,7 @@ path="res://.import/splat.wav-a97695f50a9bb4ff9657a9ea489a6896.sample"
 [deps]
 
 source_file="res://Audio/Sounds/splat.wav"
-source_md5="64a3f9014f2032a523b4f980efd94a5c"
-
 dest_files=[ "res://.import/splat.wav-a97695f50a9bb4ff9657a9ea489a6896.sample" ]
-dest_md5="7a57aca1dcd8babc314700d3c5f280a3"
 
 [params]
 

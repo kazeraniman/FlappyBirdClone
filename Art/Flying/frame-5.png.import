@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/frame-5.png-04d4db264053bf6e9cb4ddacbbb2446b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Art/Flying/frame-5.png"
-source_md5="9f155fd30bd876f1d68d001eb8d102ab"
-
 dest_files=[ "res://.import/frame-5.png-04d4db264053bf6e9cb4ddacbbb2446b.stex" ]
-dest_md5="8c2171f7871878a225ec609c3deca4a6"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true
